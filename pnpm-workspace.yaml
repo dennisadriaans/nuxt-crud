@@ -1,4 +1,4 @@
 packages:
-  - 'cli'
-  - 'module'
-  - 'docs'
+  - 'packages/cli'
+  - 'packages/module'
+  - 'packages/docs'
