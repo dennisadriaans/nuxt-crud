@@ -29,3 +29,5 @@ coverage/
 
 # pnpm store
 .pnpm-store/
+
+.data
