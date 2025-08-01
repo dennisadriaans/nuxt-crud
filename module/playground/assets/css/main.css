@@ -1,0 +1,40 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+@source "../../../src/runtime";
+
+@theme static {
+  --font-sans: "PT Sans", sans-serif;
+}
+
+html, body, #__nuxt {
+  height: 100%;
+}
+
+html {
+  font-size: 16px;
+}
+
+:root {
+  --ui-primary: black;
+  --ui-text: black;
+
+      --side-bar-width: 280px;
+}
+
+.dark {
+  --ui-primary: white;
+  --ui-text: white;
+
+  --vis-axis-tick-label-color:  var(--ui-text-muted) !important;
+
+    --vis-color0: oklch(0.72 0.192 149.58) !important;
+  --vis-color1: oklch(0.63 0.1963 157.86) !important;
+
+  --tooltip-label-color: rgba(255, 255, 255, 0.5) !important;
+  --tooltip-value-color: rgba(255, 255, 255, 1) !important;
+  --vis-tooltip-background-color: #121212 !important;
+  --vis-tooltip-border-color: none !important;
+
+  --vis-axis-tick-label-color:  var(--ui-text-muted) !important;
+}
