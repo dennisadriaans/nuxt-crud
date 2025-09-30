@@ -9,6 +9,8 @@ const sortButton = resolveComponent('UButton') as Component
 
 const renderSortableHeader = useSortableHeader(sortButton, sortBy, sortDir)
 
+const itemsPerPage = ref(10)
+
 // TanStack-style column definition
 type TableColumnDef<TData = unknown> = {
   id: string
@@ -25,7 +27,6 @@ type TableProps<T> = {
   table: string
   tableClass?: string
   total?: number
-  pageCount?: number
 }
 
 const props = defineProps<TableProps<T>>()
@@ -53,6 +54,7 @@ const emit = defineEmits<{
     value: Record<string, string | number | undefined>
   ): void
   (e: 'update:page', value: number): void
+  (e: 'update:itemsPerPage', value: number): void
 }>()
 
 const search = ref('')
@@ -63,6 +65,7 @@ const page = ref(1)
 watch(search, value => emit('update:search', value))
 watch(filters, value => emit('update:filters', value))
 watch(page, value => emit('update:page', value))
+watch(itemsPerPage, value => emit('update:itemsPerPage', value))
 </script>
 
 <template>
@@ -96,15 +99,23 @@ watch(page, value => emit('update:page', value))
         :class="props.tableClass"
         @select="(row) => emit('on-click', row.original.id)"
       />
-      <div class="flex justify-end mt-2">
+    </div>
+    <template #footer>
+      <div class="flex justify-between items-center mt-2">
+        <span class="text-sm text-gray-500">Showing {{ page * itemsPerPage - itemsPerPage + 1 }} to {{ Math.min(page * itemsPerPage, total || 0) }} of {{ total }} items</span>
+        <USelect
+          v-model="itemsPerPage"
+          :items="[10, 20, 50, 100]"
+          size="sm"
+        />
         <UPagination
-          v-model="page"
-          :page-count="props.pageCount || 1"
-          :total="props.total || 0"
-          :page="page"
+          v-model:page="page"
+          size="sm"
+          :items-per-page="itemsPerPage"
+          :total="total"
         />
       </div>
-    </div>
+    </template>
   </UCard>
 </template>
 

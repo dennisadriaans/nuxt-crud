@@ -45,7 +45,7 @@ const bottomLinks = [
   >
     <template #header="{ collapsed }">
       <span class="text-lg font-bold">
-        NUXT CRUD
+        {{ config.app?.name }}
       </span>
     </template>
 

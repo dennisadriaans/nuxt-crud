@@ -2,6 +2,9 @@ import z from 'zod/v4'
 
 export default defineAppConfig({
   // https://ui.nuxt.com/getting-started/theme#design-system
+  app: {
+    name: 'NUXT CRUD',
+  },
   crud: {
     collections: ['users', 'products'],
     config: {

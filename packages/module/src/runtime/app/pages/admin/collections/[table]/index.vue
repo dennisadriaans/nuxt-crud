@@ -101,6 +101,11 @@ function handlePage(_value: number) {
   query.value.page = _value
   refresh(undefined, { query: { ...query.value } })
 }
+
+function handleItemsPerPage(_value: number) {
+  query.value.pageSize = _value
+  refresh(undefined, { query: { ...query.value } })
+}
 </script>
 
 <template>
@@ -128,12 +133,14 @@ function handlePage(_value: number) {
       :visible-props="visibleProps"
       :rows="rows"
       :table="slug"
+      :total="data?.count"
       @on-edit="openEdit"
       @on-delete="handleDelete"
       @on-click="(id) => navigateTo(`/admin/collections/${slug}/${id}`)"
       @update:search="handleSearch"
       @update:filters="handleFilters"
       @update:page="handlePage"
+      @update:items-per-page="handleItemsPerPage"
     />
 
     <!-- <UCard class="!bg-(--ui-bg)">
