@@ -1,17 +1,32 @@
+# ⚠️ DEPRECATED
 
-# Nuxt CRUD Monorepo
+This package is no longer maintained and has been **deprecated**.
 
-This is a pnpm workspaces monorepo containing three packages:
-- `cli`: Command-line interface to generate Laravel-like endpoints, request and response schemas.
-- `module`: An admin panel generated from your Drizzle ORM models.
-- `docs`: Documentation.
+### 🚀 Migration Notice
 
-## Getting Started
+We have moved all development and features to a more robust, unified platform. Please migrate to **[DashboardStack](https://dashboardstack.sh)** for the latest updates, improved performance, and new features.
 
-- Install dependencies: `pnpm install`.
-- Run scripts from the root or from individual packages as needed.
+### Why the change?
 
-## Structure
-- `/cli` - CLI tools.
-- `/module` - Admin panel module.
-- `/docs` - Documentation.
+DashboardStack provides a more comprehensive suite of tools and a better developer experience than this standalone package could offer.
+
+### How to migrate
+
+1. Visit [dashboardstack.sh](https://dashboardstack.sh).
+2. Follow the documentation for the equivalent implementation.
+3. Uninstall this package from your project:
+```bash
+# Example for npm
+npm uninstall <package-name>
+
+```
+
+
+
+---
+
+*Thank you to all the contributors and users who supported this project!*
+
+```
+
+```
