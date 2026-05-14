@@ -1,71 +1,32 @@
-# Nuxt CRUD CLI
+# ⚠️ DEPRECATED
 
-A Laravel Artisan-inspired CLI tool for generating CRUD backend files in Nuxt 3 projects with Drizzle ORM and SQLite.
+This package is no longer maintained and has been **deprecated**.
 
-# Installation
+### 🚀 Migration Notice
 
+We have moved all development and features to a more robust, unified platform. Please migrate to **[DashboardStack](https://dashboardstack.sh)** for the latest updates, improved performance, and new features.
+
+### Why the change?
+
+DashboardStack provides a more comprehensive suite of tools and a better developer experience than this standalone package could offer.
+
+### How to migrate
+
+1. Visit [dashboardstack.sh](https://dashboardstack.sh).
+2. Follow the documentation for the equivalent implementation.
+3. Uninstall this package from your project:
 ```bash
-npm install -g nuxt-crud-cli
-```
-
-## Usage
-
-### Generate a Model
-
-Create a new Drizzle schema file:
-
-```bash
-# Basic model
-nuxt-crud make:model User
-
-# Model with fields
-nuxt-crud make:model User -- --fields="name:string,email:string|unique,age:number"
-```
-
-Field types supported:
-- `string`, `text` - Text fields
-- `number`, `int`, `integer` - Integer fields  
-- `float`, `real` - Float fields
-- `boolean`, `bool` - Boolean fields (stored as integer in SQLite)
-- `date`, `datetime`, `timestamp` - Date fields (stored as ISO strings)
-- `json` - JSON fields
-
-Field modifiers:
-- `|required` - Makes field required
-- `|unique` - Makes field unique
-
-This generates:
-- `server/api/v1/{resource}/index.ts` - List all items
-- `server/api/v1/{resource}/[id].ts` - Get single item
-- `server/api/v1/{resource}/create.post.ts` - Create new item
-- `server/api/v1/{resource}/update.put.ts` - Update existing item
-- `server/api/v1/{resource}/validation/` - Validation schemas using drizzle-zod
-
-## Generated Structure
+# Example for npm
+npm uninstall <package-name>
 
 ```
-server/
-├── api/v1/{resource}/
-│   ├── index.ts              # GET /api/v1/{resource}
-│   ├── [id].ts              # GET /api/v1/{resource}/{id}
-│   ├── create.post.ts       # POST /api/v1/{resource}/create
-│   ├── update.put.ts        # PUT /api/v1/{resource}/update/{id}
-│   └── validation/
-│       ├── create{Model}Schema.ts
-│       ├── update{Model}Schema.ts
-│       ├── {model}ResponseSchema.ts
-│       └── {model}ListResponseSchema.ts
-└── database/schema/
-    ├── index.ts             # Schema exports
-    └── {model}.ts           # Drizzle schema definition
+
+
+
+---
+
+*Thank you to all the contributors and users who supported this project!*
+
 ```
 
-## Development
-
-```bash
-# Run CLI in development
-npm run dev make:model User
-
-# Build for production
-npm run build
 ```
